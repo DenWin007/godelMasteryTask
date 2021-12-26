@@ -25,7 +25,7 @@ public class ordersServiceImpl implements OrderService {
 
     @Override
     public void delete(long id) {
-        if(orderDao.existsById(id))
+        if (orderDao.existsById(id))
             orderDao.deleteById(id);
     }
 

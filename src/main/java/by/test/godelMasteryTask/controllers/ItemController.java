@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class itemController {
+public class ItemController {
 
     @Autowired
     private ItemService itemService;
@@ -24,12 +24,12 @@ public class itemController {
     public ItemViewList itemsView() {
         List<Item> a = itemService.getAll();
         List<ItemView> a1 = new ArrayList<>();
-        for(Item i:a){
-           ItemView itemView = new ItemView(i.getId(),i.getName(),String.valueOf(i.getPrice())+"$");
+        for (Item i : a) {
+            ItemView itemView = new ItemView(i.getId(), i.getName(), String.valueOf(i.getPrice()) + "$");
             a1.add(itemView);
         }
 
-        ItemViewList b = new ItemViewList(a1.size(),a1);
+        ItemViewList b = new ItemViewList(a1.size(), a1);
         return b;
     }
 }

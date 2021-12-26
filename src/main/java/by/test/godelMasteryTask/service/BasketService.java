@@ -8,12 +8,19 @@ import java.util.List;
 
 public interface BasketService {
     List<Basket> getAll();
+
     List<Basket> getAllByOrderIsNull();
+
     List<Basket> getAllByOrderIsNotNull();
+
     List<Basket> getByOrder(Order order);
+
     Basket getById(long id);
+
     Basket getByItem(Item item);
+
     void delete(long id);
+
     Basket create(Basket request);
 
 }

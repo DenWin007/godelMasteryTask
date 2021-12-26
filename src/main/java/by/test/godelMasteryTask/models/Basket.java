@@ -17,7 +17,7 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private int  quantity;
+    private int quantity;
 
     private double total;
 
@@ -31,8 +31,8 @@ public class Basket {
     @JsonIgnore
     private Order order;
 
-    public Basket() {}
-
+    public Basket() {
+    }
 
 
 }

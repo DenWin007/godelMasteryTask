@@ -25,7 +25,8 @@ public class Order {
     @JsonIgnore
     private Set<Basket> Baskets = new HashSet<Basket>(0);
 
-    public Order() {}
+    public Order() {
+    }
 
 
 }

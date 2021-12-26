@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-public class orderController {
+public class OrderController {
 
     @Autowired
     private BasketService basketService;
@@ -28,22 +28,22 @@ public class orderController {
     private OrderService orderService;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/orders/add", method = RequestMethod.POST)
     public OrderViewList addOrder() {
         List<Basket> data = basketService.getAllByOrderIsNull();
         List<OrderView> orders = new ArrayList<OrderView>();
         Order a = new Order();
-        OrderView show= new OrderView();
+        OrderView show = new OrderView();
         double orderPrice = 0.0;
         String timeOrder = new SimpleDateFormat("dd.MM.yyyy:HH.mm.ss").format(new Date());
         List<BasketView> baskets = new ArrayList<BasketView>();
         a.setTimestamp(timeOrder);
-        for (Basket n : data){
+        for (Basket n : data) {
             orderPrice += n.getTotal();
         }
         a.setOrderPrice(orderPrice);
         Order addO = orderService.create(a);
-        for (Basket n : data){
+        for (Basket n : data) {
             n.setOrder(addO);
             basketService.create(n);
             BasketView bas = new BasketView();
@@ -56,8 +56,8 @@ public class orderController {
         show.setTimestamp(timeOrder);
         show.setItems(baskets);
         orders.add(show);
-        OrderViewList orderViewList = new OrderViewList(orders.size(),orders);
-        return  orderViewList;
+        OrderViewList orderViewList = new OrderViewList(orders.size(), orders);
+        return orderViewList;
 
     }
 
@@ -66,14 +66,14 @@ public class orderController {
     public OrderViewList orders() {
         List<Order> a = orderService.getAll();
         List<OrderView> orders = new ArrayList<OrderView>();
-        for (Order n : a){
+        for (Order n : a) {
             OrderView ow = new OrderView();
             ow.setId(n.getId());
             ow.setTimestamp(n.getTimestamp());
             ow.setOrderPrise(n.getOrderPrice());
             List<Basket> bs = basketService.getByOrder(n);
             List<BasketView> bv = new ArrayList<>();
-            for (Basket b1 : bs){
+            for (Basket b1 : bs) {
                 BasketView j = new BasketView();
                 j.setTitle(b1.getItem().getName());
                 j.setQuantity(b1.getQuantity());
@@ -83,7 +83,7 @@ public class orderController {
             ow.setItems(bv);
             orders.add(ow);
         }
-        OrderViewList orderViewList = new OrderViewList(orders.size(),orders);
+        OrderViewList orderViewList = new OrderViewList(orders.size(), orders);
         return orderViewList;
     }
 }

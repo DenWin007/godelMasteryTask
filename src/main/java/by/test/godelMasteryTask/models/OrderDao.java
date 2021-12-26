@@ -8,6 +8,7 @@ import java.util.List;
 @Transactional
 public interface OrderDao extends CrudRepository<Order, Long> {
     List<Order> findAll();
+
     Order findOrderById(long id);
 
 }

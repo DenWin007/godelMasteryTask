@@ -32,7 +32,7 @@ public class Item {
     private Set<Basket> Baskets = new HashSet<Basket>(0);
 
 
-
-    public Item(){}
+    public Item() {
+    }
 
 }

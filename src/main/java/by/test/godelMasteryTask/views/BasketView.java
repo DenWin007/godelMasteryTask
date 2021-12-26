@@ -2,7 +2,7 @@ package by.test.godelMasteryTask.views;
 
 public class BasketView {
     private String title;
-    private int  quantity;
+    private int quantity;
     private double total;
 
     public String getTitle() {
@@ -29,12 +29,5 @@ public class BasketView {
         this.total = total;
     }
 
-    @Override
-    public String toString() {
-        return "BasketRequest{" +
-                "title='" + title + '\'' +
-                ", quantity=" + quantity +
-                ", total=" + total +
-                '}';
-    }
+
 }

@@ -47,7 +47,7 @@ public class basketServiceImpl implements BasketService {
 
     @Override
     public void delete(long id) {
-        if(basketDao.existsById(id))
+        if (basketDao.existsById(id))
             basketDao.deleteById(id);
 
     }

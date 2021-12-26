@@ -25,7 +25,7 @@ public class itemServiceImpl implements ItemService {
 
     @Override
     public void delete(long id) {
-        if(itemDao.existsById(id))
+        if (itemDao.existsById(id))
             itemDao.deleteById(id);
     }
 
