@@ -8,6 +8,6 @@ Maven 4.0.0 or higher,
 Spring Framework
 SpringBoot
 
-you can view API contract in swagger.yaml file
+You can view API contract in swagger.yaml file
 
 To view and query the database you can browse http://localhost:8181/h2. Default username is 'sa' with a blank password.
