@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class basketServiceImpl implements BasketService {
+public class BasketServiceImpl implements BasketService {
 
     @Autowired
     private BasketDao basketDao;

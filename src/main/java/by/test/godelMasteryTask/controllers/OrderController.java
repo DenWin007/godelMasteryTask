@@ -37,12 +37,14 @@ public class OrderController {
         double orderPrice = 0.0;
         String timeOrder = new SimpleDateFormat("dd.MM.yyyy:HH.mm.ss").format(new Date());
         List<BasketView> baskets = new ArrayList<BasketView>();
+
         a.setTimestamp(timeOrder);
         for (Basket n : data) {
             orderPrice += n.getTotal();
         }
         a.setOrderPrice(orderPrice);
         Order addO = orderService.create(a);
+
         for (Basket n : data) {
             n.setOrder(addO);
             basketService.create(n);
@@ -66,6 +68,7 @@ public class OrderController {
     public OrderViewList orders() {
         List<Order> a = orderService.getAll();
         List<OrderView> orders = new ArrayList<OrderView>();
+
         for (Order n : a) {
             OrderView ow = new OrderView();
             ow.setId(n.getId());
@@ -73,6 +76,7 @@ public class OrderController {
             ow.setOrderPrise(n.getOrderPrice());
             List<Basket> bs = basketService.getByOrder(n);
             List<BasketView> bv = new ArrayList<>();
+
             for (Basket b1 : bs) {
                 BasketView j = new BasketView();
                 j.setTitle(b1.getItem().getName());
@@ -80,9 +84,11 @@ public class OrderController {
                 j.setTotal(b1.getTotal());
                 bv.add(j);
             }
+
             ow.setItems(bv);
             orders.add(ow);
         }
+
         OrderViewList orderViewList = new OrderViewList(orders.size(), orders);
         return orderViewList;
     }

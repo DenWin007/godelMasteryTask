@@ -24,12 +24,13 @@ public class ItemController {
     public ItemViewList itemsView() {
         List<Item> a = itemService.getAll();
         List<ItemView> a1 = new ArrayList<>();
+
         for (Item i : a) {
             ItemView itemView = new ItemView(i.getId(), i.getName(), String.valueOf(i.getPrice()) + "$");
             a1.add(itemView);
         }
 
-        ItemViewList b = new ItemViewList(a1.size(), a1);
-        return b;
+        ItemViewList show = new ItemViewList(a1.size(), a1);
+        return show;
     }
 }

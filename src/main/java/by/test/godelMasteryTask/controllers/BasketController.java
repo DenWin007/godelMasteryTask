@@ -40,12 +40,12 @@ public class BasketController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(value = "basket/add/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/basket/add/{id}", method = RequestMethod.POST)
     public ResponseEntity<?> addBasket(@PathVariable("id") Long id) {
         Basket a = null;
         Item addItem = itemService.getItemById(id);
         if (addItem == null)
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         if (basketService.getByItem(addItem) == null) {
             a = new Basket();
             a.setItem(addItem);
@@ -64,15 +64,15 @@ public class BasketController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(value = "basket/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/basket/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delBasket(@PathVariable("id") Long id) {
-        Basket a = null;
 
         if (basketService.getById(id) == null) {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         } else if (basketService.getById(id).getQuantity() == 1) {
             basketService.delete(id);
         } else {
+            Basket a = null;
             a = basketService.getById(id);
             a.setQuantity(a.getQuantity() - 1);
             a.setTotal(a.getTotal() - a.getItem().getPrice());
