@@ -1,15 +1,12 @@
 Readme: godelMasteryTask
 An example of a RESTful WebServer developed using Spring & SpringBoot.
 
-Spring Framework
-SpringBoot
-
 To run the project
 You will need:
-
 Java JDK 12 or higher,
-
 Maven 4.0.0 or higher,
+Spring Framework
+SpringBoot
 
 Additional info in swagger.yaml file 
 
