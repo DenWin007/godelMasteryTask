@@ -10,5 +10,4 @@ SpringBoot
 
 Additional info in swagger.yaml file 
 
-To view H2 in-memory database
-The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8181/h2. Default username is 'sa' with a blank password.
+To view and query the database you can browse to http://localhost:8181/h2. Default username is 'sa' with a blank password.
