@@ -1,8 +1,6 @@
 Readme: godelMasteryTask
 An example of a RESTful WebServer developed using Spring & SpringBoot.
 
-This simple server acts a Location-Service - it will return items and orders.
-
 Spring Framework
 SpringBoot
 
